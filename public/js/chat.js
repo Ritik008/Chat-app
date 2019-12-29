@@ -49,14 +49,6 @@ socket.on('message', (message) => {
     autoscroll()
 })
 
-socket.on('roomData', ({ room, users }) => {
-      const html = Mustache.render(sidebarTemplate, {
-          room,
-          users
-      })
-      document.querySelector('#sidebar').innerHTML = html
-})
-
 socket.on('locationMessage', (message)=> {
     console.log(message)
     const html = Mustache.render(locationTemplate, {
@@ -66,6 +58,14 @@ socket.on('locationMessage', (message)=> {
     })
     $messages.insertAdjacentHTML('beforeend', html)
     autoscroll()
+})
+
+socket.on('roomData', ({ room, users }) => {
+    const html = Mustache.render(sidebarTemplate, {
+        room,
+        users
+    })
+    document.querySelector('#sidebar').innerHTML = html
 })
 
 $messageForm.addEventListener('submit', (e)=> {
