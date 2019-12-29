@@ -68,10 +68,6 @@ socket.on('locationMessage', (message)=> {
     autoscroll()
 })
 
-if(window.innerHeight > window.innerWidth) {
-    alert('Please use landscape!')
-}
-
 $messageForm.addEventListener('submit', (e)=> {
     e.preventDefault()
 
